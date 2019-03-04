@@ -1,0 +1,1 @@
+If you want to master Git, don't worry about learning the commands, instead, learn the model
