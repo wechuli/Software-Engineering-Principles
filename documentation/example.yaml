@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: 'SmartBear HR API'
+  description: 'SmartBear HR API'
+  termsOfService: https://smartbear.com/terms-of-use
+  contact:
+    name: Paul
+    url: strathmore.edu
+    email: pwechuli@strathmore.edu
+  license:
+    name: Smartbear licence
+    url: hrrp://license.foo.com
+    
+paths: 
+  /employees:
+    get:
+      description: Get all employees in the system
+      responses:
+        200:
