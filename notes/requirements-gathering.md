@@ -74,3 +74,18 @@ Nonfunctional requirements are statements about the quality of the application's
 ### Implementation Requirements
 
 Implementation requirements are temporary features that are needed to transition to using the new system but that will be later discarded. The tasks descibed in implementation requirements don't always involve programming. Other implementation requirements include hiring new staff, buying new hardware, preparing training materials, and actually training the users to use the new system.
+
+## FURPS
+FURPS is an acronym for this system's requirement categories: functionality, usability, reliability, performance and scalability.
+ - *Functionality* - What the application should do. These requirements describe the system's general features including what is does, interfaces with other systems, security etc
+ - *Usability* - What the program should look like. These requirements describe user-oriented features such as the application's general appearance, ease of use, navigation methods and responsiveness.
+ - *Reliability* - how reliable the system should be. These requirements indicate such things as when the system should be available, how often it can fail and how accurate the system is
+ - *Performance* - How efficient the system should be. These requirements describe such things as the application's speed, memory usage, disk udage and database capacity.
+ - *Supportability* - How wasy it is to support the application. These requirements include such things as how easy it will be to maintain the application, how easy it is to test the code and how flexible the application is
+
+## FURPS+
+FURPS was extended into FURPS+ to add a few requirements categories that software engineers though were missing.
+- *Design Constrains*- These are constraints on the design that are driven by other factors such as the hardware platform, software platform, network characteristics or database.
+- *Implementation requirements* - These are constraints on the way the software is built.
+- *Interface requirements* - These are constraints on the system's interface with other systems. They tell what other systems will exchange data with the one you're building. They describe things like the kinds of interactions that will take place, when they will occur, and the format of the data that will be exchanged.
+- Physical requirements - these are constrains on the hardware and physical devices that the system will use
