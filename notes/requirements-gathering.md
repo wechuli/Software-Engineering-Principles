@@ -95,22 +95,71 @@ FURPS was extended into FURPS+ to add a few requirements categories that softwar
 - _Physical requirements_ - these are constrains on the hardware and physical devices that the system will use
 
 ##
- - Functionality
- - Usability
- - Reliability
- - Performance
- - Supportability
- - Design
- - Implementation
- - Interface
- - Physical
- 
- Using requirements categories as a checklist can help you notice if you are missing certain kinds of requirements.
 
- ## Common Requirements
- The following list summarizes some specific requirements that arise in many applications
- - **Screens** - What screens are needed?
- - **Menus** - What menus will the screens have ?
- - **Navigation** - How will the users navigate through different parts of the system. Will they click buttons, use menus, or click forward and backward arows? Or some combination of those methods?
- - **Work flow** - How does data move through the system
- - **Login** - How is login information stored and validated?
+- Functionality
+- Usability
+- Reliability
+- Performance
+- Supportability
+- Design
+- Implementation
+- Interface
+- Physical
+
+Using requirements categories as a checklist can help you notice if you are missing certain kinds of requirements.
+
+## Common Requirements
+
+The following list summarizes some specific requirements that arise in many applications
+
+- **Screens** - What screens are needed?
+- **Menus** - What menus will the screens have ?
+- **Navigation** - How will the users navigate through different parts of the system. Will they click buttons, use menus, or click forward and backward arows? Or some combination of those methods?
+- **Work flow** - How does data move through the system
+- **Login** - How is login information stored and validated?
+- **User types** -Are there different kinds of users? Do they need different privileges?
+- **Audit tracking and history** - Does the system need to track who made changes to the data?
+- **Archiving** - Does the system need to archive older data to free up space in the database?Does it need to copy data into a data warehouse for analysis?
+- **Configuration** - Should the application provide configuration screens that let the system administrators change the way the program works.
+
+## Gathering requirements
+
+The following describe several techniques you can use to gather and refine requirements
+
+### Listen to Customers(and Users)
+
+Sometimes customers come equipped with fully developed requirements spelling out exactly what the application should do, how it should work and what is should look like. More often, they just have a problem that they want solved and a vague notion that a computer might somehow help.
+Start by listening to the customers. Learn as much as you can about the problem they are trying to address and any ideas they may have about how the application might solve the problem. Initially, focus as much as possible on the problem, not on the customers' suggested solutions,so you can keep the requirements flexible. Take lots of notes while you're listening to the customers.
+
+### Use the Five Ws(and One H)
+
+- **Who** - ask who will be using the software and get to know as much as you can about those people. Find out is the users and the customers are the same and learn as much about the users as you can.
+- **What** - Figure out what the customers need the application to do.Focus on the goals as much as possible rather than the customers' ideas bout how the solution should work.
+- **When** - Find out when the application is needed. If the application will be rolled out in phases, find out which features are needed when.
+- **Where** - Find out where the application will be used. Will it be used on desktop computers or in a mobile phone
+- **Why** - Ask why the customers need the application.
+- **How** - Sometimes customers may have a better idea of how a certain problem should be implemented.
+
+### Study Users
+
+Interviewing customers(and users) can get you a lot of information, but iften customers won't tell you everything they do or need to do. By studying users as they work, you can learn more about what they need to do and how they are currently doing it. Then with your software-engineering perspective, you can look for solutions that might not occur to the users. As you study the users, pay attention to how they do things. Look at the forms they fill out(paper or online). Figure out where they spend most of their time. Look for the tasks that go smoothly and those that don't. You can use that information to identify areas in which your project can help.
+
+## Refining Requirements
+
+After you've talked to the customers and users and watched the users at work, you should have a good understanding about the users' current operations and needs. Next, you need to use what you've learned to develop ideas for solving the user's problems. You need to distill the goals(what the customers need to do) into approaches(how the application will do it)
+Moving from goals to requirements often forces you to make some design decisions. The follwing describe 3 approaches for converting goals into requirements
+
+### Copy Existing Systems
+
+If you're building a system to replace an existing system or a manual process, you can often use many of the behavious of the existing system as requirements for the new one.
+This approach has a few advantages:
+
+- It's reasonable straightforward. You can dig through the existing application and find out what it does.
+- This approach also makes it more likely that the requirements can actually be satisifed.
+- This approach provides an unambigious example of what you need to do.
+
+There are some disadvantages to this approach:
+
+- Users are often reluctant to give up even the tiniest features in an existing program.
+
+Using an existing system to generate requirements can be a git time-saver, as long as the development team and the customers all agree on which parts of the existing system will be included in the new one.
