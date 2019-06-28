@@ -163,3 +163,47 @@ There are some disadvantages to this approach:
 - Users are often reluctant to give up even the tiniest features in an existing program.
 
 Using an existing system to generate requirements can be a git time-saver, as long as the development team and the customers all agree on which parts of the existing system will be included in the new one.
+
+### Clairvoyance
+
+A lot more often than you might think, one or more people simply look at the project's goals, visualize a finished result and start cranking out requirements. This technique is particularly effective if the project lead has previously built a similar system.
+
+### Brainstorm
+
+Copying an existing application and clairvoyance are good techniques for generating requirements, but they share a common disadvantage: They are unlikely to lead you to new innovative solutions that might be better than the old ones. To find truly revolutionary solutions, you need to be more creative. One way to look for creative solutions is the group creativity exercise know as brainstorming.
+
+Basically, the gist of the method is to gather as many ideas as possible, not worrying about their quality or practicality. After you assemble a large list of possible ideas, you examine them more closely to see which deserve further work.
+
+To allow as many approaches as possible, you should try to get a diverse group of participants. To keep the ideas flowing, don't judge or critique any of the ideas.
+
+## Recording Requirements
+
+After you decide what should be in the requirements, you need to write them down so that everyone can read them
+
+### UML
+
+The Unified Modeling Language(UML) lets you specify how parts of the system should work. Despite its name, UML isn't a single unified language.Instead it uses several kinds of diagrams to represent different pieces of the system.Some of those represent program items such as classes. Others represent behavious such as the way objects interact with each other and the way data flows through the system.
+
+Therre are some drawbacks with using UML, most notably, it's complicated. Specifying complex requirements with UML is only useful if everyone understands the UML
+
+### Use Stories
+
+A user story is exactly what you might think: a short story explaining how the system will let the user do something. User stories should come with acceptance testing procedures that you can use at the end of development to decide whether the application satisfied the story.
+
+### Use Cases
+
+A use case is a description of a series of interactions between actors. The actors can be users or parts of the application.
+
+Often a use case has a larger scope than a user story. Use cases also follow a template more often than user stories. A simple template might require a use case to have the following fields:
+
+- **Title**
+- **Main success scenario**
+- **Extensions**
+
+### Prototypes
+
+A prototype is a mockup of some or all of the application. The idea is to give the customers a more intuitive hands-on feel for what the finished application will look like and how it will behave than you can get from text descriptions such as user stories and user cases.
+
+### Requirements specification
+
+How formally you need to write up the requirements depends on your project.
