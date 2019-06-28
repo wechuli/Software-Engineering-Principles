@@ -206,4 +206,4 @@ A prototype is a mockup of some or all of the application. The idea is to give t
 
 ### Requirements specification
 
-How formally you need to write up the requirements depends on your project.
+How formally you need to write up the requirements depends on your project. These typically list major categories of requirements such as user documentation, user interface design and interfaces with other system.
