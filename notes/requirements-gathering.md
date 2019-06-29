@@ -34,7 +34,7 @@ The MOSCOW is an acronym to help you remember a common system for prioritizing a
 M- Must. These are required features that must be included. They are necessary for the project to be considered a success
 S-Should. These are important features that should be included if possible
 C-Could. These are desirable features that can be omitted if they won't fit in the schedule.
-W-Won't These are complete;y optional features that the customers have aggreed will not be included in the current release.
+W-Won't These are completly optional features that the customers have aggreed will not be included in the current release.
 
 ### Verifiable
 
@@ -207,3 +207,13 @@ A prototype is a mockup of some or all of the application. The idea is to give t
 ### Requirements specification
 
 How formally you need to write up the requirements depends on your project. These typically list major categories of requirements such as user documentation, user interface design and interfaces with other system.
+
+## Validation and Verification
+
+After you record the requirements, you still need to validate them and later verify them. 
+Requirements validation is the process of making sure that the requirements say the right things. Someone, often the customers or users, need to work through all the requirements and make sure that they are 1. describe things the applicaion should do 2. Describe everything the application should do.
+
+Requirement verification is the process of checking that the finsihed application actually satisfies the requirements.
+
+## Changing Requirements
+In many projects, requirements evolve over time. As work proceeds, you may discover that something you thought would be easy is hard. Often, changes are driven by the customers. After they start to see working pieces of the application, they may think of other items that they hadn't thought of before. Depending on the kind of project, you may accomodate some changes as long as they don't get out of hand.
