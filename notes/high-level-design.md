@@ -114,4 +114,60 @@ In a distributed architecture, different parts of the application run on difeere
 In general, distributed applications can be extremely confusing and hard to debug. A distributed architecture can improve performance as long as you don't run a foul of race conditions and other potential problems.
 
 ### 8. Mix and Match
+
 An application doesn't need to stick with a single architecture. Different pieces of the application might use different design approaches.
+
+## Reports
+
+Almost any nontrivial software project can use some kinds of repots. As in the case with high-level user interface design, you don't need to specify every detail for every report here. Try to decide which reports you'll need and leave the details for low-level design and inmplementation.
+
+## Other Outputs
+
+In addition to normal reports, you should consider other kinds of outputs that the application might create. The application could generate printouts, web pages, data files, image files etc.
+
+## Databases
+
+Database design is an important part of most applications. The first part of database design is to decide what kind of database the program will need.You need to specify whether the application will store data in text fi les, XML fi les, a full‐fl edged relational database, or something more exotic such as a temporal database or object store.
+
+If you decide to use an external database, you should specify the database product that you will use. If you use a relational database, you can sketch out the tables it contains and their relationships during high-level design.Later you cn provide more details such as the specific fields in each table and the fields that make up the keys linking the tables.
+
+Often the tables in the database correspond to classes that you need to build in the code.At this point, it makes sense to write down any important classes you define. Use good database design practices to ensure that the database is properly normalized.
+
+Meanwhile there are 3 common database-specific issues that you should address during high-level design: audit trails, user access, and database maintenance:
+
+### Audit Trails
+
+An audit trail keeps track of each user who modifies(and in some applicaions views) a specific record. Auditing can be as simple as creating a history table that records a user's name, a link to the record that was modified, and the date when the change occurred. Some database products can even create audit trails for you. A fancier version might store copies of the original data in each table when its data is modified.
+
+Later, you can compare the customer's records over time to build an audit trail that re-creates the exact sequence of changes made for that customer.
+
+### User Access
+
+Many applications also need to provide different levels of access to different kinds of data. One way to handle access is to build a table listing the users and the privileges they should be given. The program can then disable or remove the buttons and menu items that a particular user shouldn't be allowed to use.
+
+Many databases can also restrict access to tables or even specific columns in tables
+
+### Database Maintenance
+
+Over time, a database becomes disorganized. Every now and then, you need to reorganize so that you can find things efficiently.If you use audit trails and the records require a lot of changes, the database will start to fi ll up with old versions of records that have been modifi ed. Even if you don’t use audit trails, over time the database can become cluttered with outdated records.
+
+In that case, you may want to move some of the older data to long‐term storage to keep the main database lean and responsive. Depending on the application, you may also need to design a way to retrieve the old data if you decide you want it back later.
+
+You can move the older data into a data warehouse , a secondary database that holds older data for analysis. In some applications, you may want to analyze the data and store modifi ed or aggregated forms in the warehouse instead of keeping every outdated record.
+
+Removing old data from a database can help keep it responsive, but a lot of changes to the data can make the database’s indexes ineffi cient and that can hurt performance. For that reason, you may need to periodically re‐index key tables or run database tuning software to restore peak
+performance. Finally, you should design a database backup and recovery scheme.
+
+## Configuration Data
+
+You can reduce your workload if you provide configuration screens so that users can fine-tune the application without making you write new code.
+Store parameters to algorithms, key amounts, and important durations in the database or in confi guration files. Make sure that only the right users can modify the parameters. In many applications, only managers should change these values.
+
+## Data Flows and States
+
+Many applications use data that flows among different processes. You can also think of a piece of data such as a customer order as moving through a sequence of states. The states often correspond to the process in the related data flow. These kinds of diagrams elp describe the system and the way processes interact with the data.
+
+## Training
+Although it may not be time to start writing training materials, it's never too early to think about them. The details of the system will probably change a lot between high-level design and final installation, but you can at least think about how you want training to work.
+
+# UML
