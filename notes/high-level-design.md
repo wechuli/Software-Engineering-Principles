@@ -168,6 +168,80 @@ Store parameters to algorithms, key amounts, and important durations in the data
 Many applications use data that flows among different processes. You can also think of a piece of data such as a customer order as moving through a sequence of states. The states often correspond to the process in the related data flow. These kinds of diagrams elp describe the system and the way processes interact with the data.
 
 ## Training
+
 Although it may not be time to start writing training materials, it's never too early to think about them. The details of the system will probably change a lot between high-level design and final installation, but you can at least think about how you want training to work.
 
 # UML
+
+The Unified Modelling Language(UML) isn't actually a single unified language. Instead it defines several kinds of diagrams that you can use to represent different pieces of the system.
+
+The UML 2.0 defines 13 diagram types divided into 3 categories(and one subcategory)
+
+- Diagram
+  - Structure Diagram
+    - Class Diagram
+    - Composite Structure Diagram
+    - Component Diagram
+    - Deployment Diagram
+    - Object Diagram
+    - Package Diagram
+    - Profile Diagram
+  - Behaviour Diagram
+    - Activity Diagram
+    - Use Case Diagram
+    - State Machine Diagram
+    - Interaction Diagram
+      - Sequence Diagram
+      - Communication Diagram
+      - Interaction Overview Diagram
+      - Timing Diagram
+
+## Structure Diagrams
+
+A Structure diagram describes things that will be in the system you are designing. For example, the class diagram (one type of structure diagram) shows relationships among the classes that will represent objects in the system such as inventory items, vehicles, expense reports and coffee requisition forms.
+
+Summary of UML Structure diagrams:
+
+- **Class Diagram** - Describes the classes that make up the system, their properties and methods, and their relationships.
+- **Object Diagram** - Focuses on a particular set of objects and their relationships at a specific time.
+- **Component Diagram** - shows how components are combined to form larger parts of the system
+- **Composite Structure Diagram** - Shows a class's internal structure and the collaborations that the class allows.
+- **Package Diagram** -Describes relationships among the packages that make up a system. For example, if one package in the system uses features provided by another package, then the
+  diagram would show the fi rst “importing” the second.
+- Deployment Diagram - Describes the deployment of artifacts(files, scripts, executables and the like) on nodes(hardware devices or execution environments that can execute artifacts)
+
+## Behaviour Diagrams
+
+UML defines 3 kinds of basic behaviour diagrams: activity diagrams, use case diagrams and state machine diagrams.
+
+### Activity Diagrams
+
+An activity diagram represents work flows for activities. They include several kinds of symbols connected with arrows to show the direction of the work.
+
+- **Rounded rectangle** - An action or task
+- **Diamond** - A decision
+- **Thick bar** - The start or end of concurrent activities
+- **Black circle** - The start
+- **Circled black circle** - The end
+  Below is an example of an activity diagram:
+
+![](activitydiagram.PNG)
+
+### Use Case Diagram
+
+A use case diagram represents a user's interaction with the system. Use case diagrams show stick figures representing actos(someone or something that performs a task) connected to tasks represented by ellipses.
+To provide more detail, you can use arrows to join subtasks to tasks. Use the annotation <<include>> to mean the task includes the subtask. (It can’t take place without the subtask.) If a subtask might occur only under some circumstances,connect it to the main task and add the annotation <<extend>> . If you like, you can add a note indicating when the extension occurs.
+
+![](behavior.PNG)
+
+### State Machine Diagram
+
+ A state machine diagram shows the states through which an object passes in response to various events. States are represented by rounded rectangles. Arrows indicate transitions from one state to another. Sometimes annotations on the arrows indicate what cases a transition.
+
+ A black circle represnts the starting state and a cricled black circle indicates the stopping state.
+
+![](stateM.PNG)
+
+### Interaction Diagrams
+
+Interaction diagrams are a subset of activity diagrams. They include sequence diagrams, communication diagrams, timing diagrams and interaction overview diagrams
