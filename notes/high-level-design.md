@@ -236,12 +236,31 @@ To provide more detail, you can use arrows to join subtasks to tasks. Use the an
 
 ### State Machine Diagram
 
- A state machine diagram shows the states through which an object passes in response to various events. States are represented by rounded rectangles. Arrows indicate transitions from one state to another. Sometimes annotations on the arrows indicate what cases a transition.
+A state machine diagram shows the states through which an object passes in response to various events. States are represented by rounded rectangles. Arrows indicate transitions from one state to another. Sometimes annotations on the arrows indicate what cases a transition.
 
- A black circle represnts the starting state and a cricled black circle indicates the stopping state.
+A black circle represnts the starting state and a cricled black circle indicates the stopping state.
 
 ![](stateM.PNG)
 
 ### Interaction Diagrams
 
-Interaction diagrams are a subset of activity diagrams. They include sequence diagrams, communication diagrams, timing diagrams and interaction overview diagrams
+Interaction diagrams are a subset of activity diagrams. They include sequence diagrams, communication diagrams, timing diagrams and interaction overview diagrams. The following sections provide brief descriptions of these kinds of diagrams and give a few simple examples.
+
+#### Sequence Diagram
+
+A sequence diagram shows how objects collaborate in a particular scenario. It represents the collaboration as a sequence of messages.
+
+Objects participating in the collaboration are represented as rectangles or sometimes as stick figures for actors. They are labeled with a name or class. If the label includes both a name and class, they are separated by a colon.
+Below each of the participants is a vertical dashed line called a lifeline . The lifeline basically represents the participant sitting there waiting for something to happen. An execution specifi cation (called an execution or informally an activation n ) represents a participant
+doing something. In the diagram, these are represented as gray or white rectangles drawn on top of the lifeline. You can draw overlapping rectangles to represent overlapping executions. Labeled arrows with solid arrowheads represent synchronous messages. Arrows with open
+arrowheads represent asynchronous messages. Finally, dashed arrows with open arrowheads represent return messages sent in reply to a calling message.
+
+#### Communication Diagram
+Like a sequence diagram, a communication diagram shows communication among objects during some sort of collaboration. The difference is the sequence diagram focuses on the sequence of messages, but the communicatio diagram focuses more on the objects involved in the collaboration.
+The diagram uses lines to connect objects that collaborate during an interaction. Labeled arrows indicate messages between objects. The messages are numbered that so you can follow the sequence of messages.
+
+#### Timing Diagram
+A timing diagram shows one or more objects' changes in state over time. A timning diagram looks a lot like a sequence diagram turned sideways, so time increases from left to right. These diagrams can be useful for giving a sense of how long different parts of a scenario will take. More elaborate versions of the timing diagram show multiple participants stacked above each other with arrows showing how messages pass between the participants.
+
+#### Interaction Overview Diagram
+An interaction overview diagram is basically an activity diagram where the nodes can be frames that contain other kinds of diagrams. Those nodes can contain sequence, communication, timing, and other interaction overview diagrams. This lets you show more detail for nodes that represent complicated tasks.
