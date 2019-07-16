@@ -26,3 +26,38 @@ Because an instance of a child class also belongs to the parent class, the progr
 Conversely, most object-oriented programming languages do not allow multiple inheritence, so a class can have at most a single parent class. Because classes can have at most one parent but any number of children, the realtionship between classes for a tree-like inheritence hierarchy.
 
 There are a lot of ways you can modify basic inheritence relationships. For example, a child class can add properties, methods and events(which together are called memebers) that are not available in the parent class. A child can also replace a parent class member with a new version.
+
+### Refinement
+
+Refinement is the process of breaking a parent class into multiple subclasses to capture some difference between objects in the class. One danger to refinement is overrefinement, which happens when you refine a class hierarchy unnecessarily, making too many classes that make programming more complicated and confusing. Even if the program cares about certain differences between objects, that doesn't mean those differences would make a good inheritence hierarchy.
+
+The second problem with this hierarchy is that the differences between the classes could easily be represented by properties instead of by different classes. You can avoid these kinds of hierarchy problems if you focus on behavioral differences between the different kinds of objects instead of looking at differences in properties.
+
+### Generalization
+
+Refinement starts with a single class and creates child classes to represent differences between objects. Generalization does the opposite: It starts with several classes and creates a parent for them to represent common features.
+
+Just as you can go overboard with refinement to build an inheritence hierarchy, you can also get carried away with generalization.
+
+### Hierarchy Warning Signs
+
+The following list gives some questions you can ask yourself when trying to decide if you have an effective inheritence hierarchy.
+
+- Is it tall and thin? In general, tall, thin inheritence hierarchies are more confusing than shorter ones . Tall hierarchies make it hard for developers to remember which class to use under different circumstances. How tall an inheritence hierarchy can be depends on your application but if it contains more than three or fours levels, you should make sure you really need them all.
+- Do you have a huge number of classes? If you have more than a dozen or so classes, se if you can replace some with simple properties.
+- Does a class have only a single subclass? If so, then you can probably remove it and move whatever it was trying to represent into the subclass.
+- Is there a class at the bottom of the hierarchy that is never instantiated? If so, you probably don't need it.
+- Do the classes all make common sense?
+- Do classes represent differences in a property's value rather than in behavior or the presence of properties?
+
+### Object Composition
+
+Inheritence is one way you can reuse code. A child class inherits all of the code defined by its parent class, so you don't need to write it again. Another way to reuse code is _object composition_, a technique that uses existing classes to build more complex classes.
+
+For example, suppose you define a `Person` class that has `FirstName`, `LastName`,`Address` and `Phone` properties. Now you want to make a `Company` class that should include information about a contact person.
+
+You could make the `Company` class inherit from the `Person` class so it would inherit the `FirstName`,`LastName`,`Address`, and `Phone` properties. That would give you places to store the contact person's information but it doesn't make intuitive sense. A company is not a kind of person, so `Company` should not inherit from Person.
+
+A better approach is to give the `Company` class a new property of type `Person` called `ContactPerson`. Now the `Company` class gets the benefit of the code defined by the `Person` class without the illogic and possible consfusion of inheriting from `Person`.
+
+This approach also lets you place more than one `Person` object inside the Company class. For example, if you decide the `Company` class also needs to store information about a billing contact and a shipping contact, you can add more `Person` objects to the class. You couldn’t do that with inheritance.
