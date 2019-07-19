@@ -61,3 +61,46 @@ You could make the `Company` class inherit from the `Person` class so it would i
 A better approach is to give the `Company` class a new property of type `Person` called `ContactPerson`. Now the `Company` class gets the benefit of the code defined by the `Person` class without the illogic and possible consfusion of inheriting from `Person`.
 
 This approach also lets you place more than one `Person` object inside the Company class. For example, if you decide the `Company` class also needs to store information about a billing contact and a shipping contact, you can add more `Person` objects to the class. You couldn’t do that with inheritance.
+
+
+## Database Design
+
+There are many different kinds od databases that you can use to build an application. The most popular being relational.
+Relational database are simple,easy to use and provide a good set of tools for searching, combining data from different tables, sorting results and otherwise rearranging data.
+
+A relational database stores related data in tables. Each table holds records that contain pieces of data that are related. The pieces of data in each record are called fields. Each field has a name and a data type. All the values in different records for a particular field have the data type.
+
+One particular usefule kind of relationship is a foreign key relationship. A foreign key is a set of one or more fields in one table with values that uniquely define a record in another table.
+
+The table containing the foreign key is often called the child table, and the table that contains the uniquely identified record is often called the parent table.
+
+A *lookup* table is a table that contains values just to use as foreign keys. In addition to validating user inputs, lookup tables allow the users to configure the application.
+
+Building a relational database is easy, but unless you design the database properly, you may encounter unexpected problems. Those problems may be that:
+- Duplicate data can watse space and make updating values slow
+- You may be unable to delete one piece of data without also deleting another unrelated piece of data
+- An otherwise unnecessary piece of data may need to exists so that you can represent some other data.
+- The database may not allow multiple values when you need them.
+
+These kind of problems are known as anomalies.
+
+Database normalization is a process of rearranginng a database to put it into a standard(normal) form that prevents these kinds of anomalies
+
+### First Normal Form
+*First normal form(1NF)* basically says the table can be placed meaninglfully in a relational database. It means the table has a sensible, down-to-earth structure.
+
+Relational database products tend to enforce most of the 1NF rules automatically, so if you don't do anything too weird, your database will be in 1NF with little extra work.
+
+The official requirements for a table to be in 1NF are:
+1. Each column must have a unique name
+2. The order of the rows and columns doesn't matter
+3. each column must have a single data type
+4. No two rows can contain identical values
+5. Each column must contain a single value
+6. Columns cannot contain repeating groups-That means that you can't have two columns that represent the same thing. This means a bit more than two columns don't have the same data type. Tables often have mutliple columns with the same data types but with different meanings.
+
+In general, adding a number to field names to differentiate them is a bad idea. If the program doesn't need to differentiate between the two values, then adding a number to their names just creates a repeating group.
+
+The way to fix this problem is to pull the repeated data out into a new table.
+
+### Second Normal Form
