@@ -104,3 +104,31 @@ In general, adding a number to field names to differentiate them is a bad idea. 
 The way to fix this problem is to pull the repeated data out into a new table.
 
 ### Second Normal Form
+
+A table is in second normal form(2NF) if is satisfies these rules:
+- It is in 1NF
+- All non-key fields depend on all key fields
+
+A key is a set of one or more fields that uniquely identifies a record. Any table in 1NF must have a key because 1NF Rule 4 says "No two rows can contain identical values". That means there must be a way to pick fields to guarantee uniqueness, even if the key must include every field.
+
+### Third Normal Form
+A table is in third normal form(3NF) if:
+- It is in 2NF
+- It contains no transitive dependencies
+
+A transitive dependency is when a non-key field's value depends on another non-key field's value. A major hint that there is a transitive dependency in a table is that there are lots of duplicate values in different columns. Another way to think about this is that there are 'tuples' of data that go together.
+
+You can fix this problem by keeping only enough information to identify the dependent data and moving the rest of those fields into a new table.
+
+### Higher Levels of Normalization
+
+Higher levels of normalization include Boyce‐Codd normal form (BCNF), fourth normal form(4NF), fi fth normal form (5NF), and Domain/Key Normal Form (DKNF).
+
+Many database designs stop at 3NF because it handles most kinds of databse anomalies without a huge amount of effort. In fact, with a little practice, you can design database tables in 3NF from the beginning , wo you don't need to spend several steps normalizing them.
+
+More complete levels of normalizing can also lead to confusing database designs that may make using the database harder and less intuitive, possibly giving rise to extra bugs and sometimes reduced performance.
+
+One particular compromise that is often useful is to intentionally leave some data denormalized for performance reasons.
+
+## Summary
+Low-level design fills in some of the gaps left by high-level design to provide extra guidance to developers before they start writing code. It provides the level of detail necessary for programmers to start writing code or at least for them to start builidng classes and to finish defining interfaces. Low-level design moves the high-level focus from what to a lower level focus on how.
