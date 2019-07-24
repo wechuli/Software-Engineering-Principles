@@ -48,3 +48,22 @@ The term refactoring is programmer-speak for "rearranging code to make it easier
 Training makes programmers more effective and keeps them happy.
 
 ## Selecting Algorithms
+
+After low-level design is mostly complete, you should have a good sense of what classes you need and the task those classes need to perform. The next step is writing the code to perform those tasks.
+
+For more complicated problems, the first step is researching possible algorithms. An algorithm is like a recipe for solving a hard programming problem e,g
+- Sorting and arranging pieces of data
+- Quickly locating items in databases
+- Finding optimal paths through street, power, communication or other networks
+- Designing networks to provide necessary capacity and redundancy to prevent single points of failure
+- Encrypting and decrypting data
+- Picking optimal investment strategies
+- Findning least cost construction and production strategies
+
+Fortunately, these sorts of algorithms have been extensively studied for years, so you usually don't need to write your own from scratch. You can use the internet and algorithm books to look for an approach that fits your problem.
+
+You'll probably still need to do some work plugging the algorithm into your application, but there's no need for you to reinvent everything from scratch. However, even if you don't need to build an algorithm from the ground up, you should know some of the characteristics that make an algorithm a good choice for you.
+The following describe some of the charcteristics:
+
+### Effective
+
