@@ -120,3 +120,75 @@ Fixing a bug also has a much higher chance of adding a new bug than writing new 
 
 To make debugging and maintaining code easier, you need to write code that is clear and easy to understand. Hopefully, whoever is eventually forced to track down a bug in your code won’t be a violent psychopath, but you can make that person’s job a lot easier if you remember it’s that person
 you’re writing for, not the computer.
+
+### Comment First
+
+Many programmers write the bare minimum of comments they think they can get away with and then rush off to write more code.
+
+One way to write comments that explain what the program is supposed to be doing is to write the comments first. This lets you focus on the intent of the code and not get distracted by whatever code is sitting actually there in front of you. It also means you don't need to revise the comment a dozen times. The code itself might change a dozen times, but the intent of the code better not! If it does, then you didn't do enough planning in the high-level and low-level design phases.
+
+
+### Write Self-Documenting Code
+
+In addition to writing food comments, you can make the code easier to read if you make the code self-documenting. Use descriptive names for classes, methods, properties, variables and anything else you possibly can.
+
+You can also make your code easier to understand if you don’t use magic numbers. (A magic number is a value that just appears in the code with no explanation. For example, it might represent an error code or database connection status.) Instead of using a magic number, use a named constant that has the same value.
+
+### Keep It Small
+
+Write code in small pieces. Long pieces of code are harder to read. They require you to keep more information in your head at one time. They also require you to remember what was going on at the beginning of the code when you're reading statements much later.
+
+If a piece of code becomes too long, break it into smaller pieces. Exactly how long is "too long" varies depending on what you are doing. Many developers used to break up methods that didn't fit on a one-page printout. A more recent tree-friendly rule of thumb is to break up a method if it won't fit your computer's screen all at one time.
+
+### Stay Focused
+
+Each class should represent a single concept that's intuitively easy to understand. If you can't describe a class in a single sentence, then it's probably trying to do too much, and you should consider splitting it into several related classes.
+
+Just as a class should represent a single intuitive concept, a method should have a single clear purpose. Don't write methods that perform multiple unrelated tasks. Even if two tasks are related, it's often better to put them in separate methods so that you can invoke them separately if necessary.
+
+### Avoid Side Effects
+
+A side effect is an unexpected result of a method call. For example, suppose you write a ValidateLogin method that checks a username and password in the database to see if the combination is valid. Oh, and by the way, it also leaves the application connected to the database. Leaving the database open is a side effect that isn’t obvious from the name of the ValidateLogin method.
+
+Side effects prevent a programmer from completely understanding what the application is doing. Because understanding the code is critical to producing high-quality results, avoid writing methods with side effects.Sometimes, a method may need to perform some action that is secondary to its main purpose, such as opening the database before cheking a username/password pair. There are several ways you can remove the hidden side effects.
+
+First, you can make the side effect explicit in the method’s name. For example, you could call this method OpenDatabaseAndLogin . That’s not an ideal solution because the method isn’t performing one well‐focused task, but it’s better than having unexpected side effects. (Any time you have “And” or “Or” in a method name, you may be trying to make the method dotoo much.)
+
+Second, the ValidateLogin method could close the database before it returns. That removes the hidden side effect; although it may reduce performance because you may want the database to be open for use by other methods.
+
+Third, you could move the database opening code into a new method called OpenDatabase . The program would need to call OpenDatabase separately before it called ValidateLogin , but the process would be easy to understand. 
+
+Fourth, you could create an OpenDatabase method as before and make that method keep track of whether the database was already open. If the database is open, the method wouldn’t open it again. Then you could make every method that needs the database (including ValidateLogin ) call OpenDatabase . Methods such as ValidateLogin would encapsulate the call to OpenDatabase so you wouldn’t need to think about it when you called ValidateLogin . There’s still some extra work going on behind the scenes that you may not know about, but with this approach you don’t need to keep track of whether the database is open or closed.
+
+It may take a little extra work to remove side effects from a method, but it’s worth it to make the code that calls the method easier to understand.
+
+### Validate Results
+
+Murphy's law states, "Anything that can go wrong will go wrong". By that logic, you should always assume that your calculations will fail. Maybe not every single time, but sooner or later they will produce incorrect results.
+
+Sometimes, the input data will be wrong. It may be missing or come in an incorrect format. Other times your calculations will be flawed. Values may not be correctly calculated or the results may be formatted incorrectly.
+
+To catch these problems as soon as possible, you should add validation code to your methods. The calidation code should look for trouble all over the place. It should examine the input data to make sure it's correct, and it should verify that the result your code produces is right. It can even verify that calculations are proceeding correctly in the middle of the calculation.
+
+The main tool for validating code is the assertion. An assertion is a statement about the program and its data that is supposed to be true. If it isn't, the assertion throws an exception to tell you that something is wrong.
+
+        The term exception is programmer‐speak for an unexpected error caused by the
+    code. Exceptions can be caused by all sorts of situations such as trying to open
+a fi le that doesn’t exist, trying to open a fi le that is locked by another program,
+performing an arithmetic calculation that divides by zero, using up all the
+computer’s memory, or trying to use an object that doesn’t exist.
+When an exception occurs, the program’s execution is interrupted. If you have
+an error handler in place, it can examine the exception information to fi gure out
+what went wrong and it can try to fi x things. For example, it might tell the user
+to close the application that has a fi le locked and then it could try to open the
+fi le again.
+If no error handler is ready to catch the exception, the program crashes.
+
+One type of assertion that can sometimes be useful is an invariant. an invariant is a state of the program and its data that should remain unchanged over some period of time.
+
+Assertions and other validation code, can make it easy to find bugs right after they are written when they're easiest to fix.
+
+However, bugs do occur, so obviously they must be lurking in some of the code that was just written. If only you could convince programmers to add validation code to their methods, you might catch the bugs before they become established.
+One way to encourage programmers to write validation code is to have them write it before writing the rest of a method’s code. (This is similar to the way you can often get better comments if you write them before you write the code.) Writing the validation code fi rst ensures that it happens.
+
+This also has the advantage that you probably don’t yet know exactly how the fi nal code will work. You don’t have it all in your head whispering seductively, “You did a great job writing me. There’s really no need to validate the results.” You also don’t have preconceptions about how the code works, so you won’t be infl uenced in how you write the validation code. You can look for incorrectresults without making assumptions about where errors are impossible.
