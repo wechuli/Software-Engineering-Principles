@@ -107,11 +107,13 @@ If the main task's description becomes too long, you should break it into shorte
 ## Programming Tips and Tricks
 
 ### Be Alert
+
 Writing good code can be difficult. To know if you're writing the code correctly, you need to completely understand what you're trying to do, what the code actually does and what could go wrong. You need to know in what situations the code might execute and how those situations could mess up your carefully laid plan.You need to ask yourself, what if an important fi le is locked, a needed value isn’t found in a parameter table, or if a user can’t remember his password.
 
 Keeping everything straight can be quite a challenge. You can make your life a little easier if you write code only while you're wide awake and alert.
 
 ### Write for People, Not the Computer
+
 Probably the most important tip is to write code for people, not for computers. The computer doesn't care whether you use meaningful names for variables, indent your code nicely, use comments or spell words correctly. It doesn't care how clever you are, and it doesn't care if your code produces a correct result.
 
 Debugging and maintaining code is far more difficult and time-consuming than writing code in the first place. The main reason is because you know what you are trying to do when you write code. Later when you're called upon to debug it, you might not remember exactly what the code is supposed to do and what it actually does, so it's harder to fix.
@@ -126,7 +128,6 @@ you’re writing for, not the computer.
 Many programmers write the bare minimum of comments they think they can get away with and then rush off to write more code.
 
 One way to write comments that explain what the program is supposed to be doing is to write the comments first. This lets you focus on the intent of the code and not get distracted by whatever code is sitting actually there in front of you. It also means you don't need to revise the comment a dozen times. The code itself might change a dozen times, but the intent of the code better not! If it does, then you didn't do enough planning in the high-level and low-level design phases.
-
 
 ### Write Self-Documenting Code
 
@@ -156,7 +157,7 @@ First, you can make the side effect explicit in the method’s name. For example
 
 Second, the ValidateLogin method could close the database before it returns. That removes the hidden side effect; although it may reduce performance because you may want the database to be open for use by other methods.
 
-Third, you could move the database opening code into a new method called OpenDatabase . The program would need to call OpenDatabase separately before it called ValidateLogin , but the process would be easy to understand. 
+Third, you could move the database opening code into a new method called OpenDatabase . The program would need to call OpenDatabase separately before it called ValidateLogin , but the process would be easy to understand.
 
 Fourth, you could create an OpenDatabase method as before and make that method keep track of whether the database was already open. If the database is open, the method wouldn’t open it again. Then you could make every method that needs the database (including ValidateLogin ) call OpenDatabase . Methods such as ValidateLogin would encapsulate the call to OpenDatabase so you wouldn’t need to think about it when you called ValidateLogin . There’s still some extra work going on behind the scenes that you may not know about, but with this approach you don’t need to keep track of whether the database is open or closed.
 
@@ -174,6 +175,7 @@ The main tool for validating code is the assertion. An assertion is a statement 
 
         The term exception is programmer‐speak for an unexpected error caused by the
     code. Exceptions can be caused by all sorts of situations such as trying to open
+
 a fi le that doesn’t exist, trying to open a fi le that is locked by another program,
 performing an arithmetic calculation that divides by zero, using up all the
 computer’s memory, or trying to use an object that doesn’t exist.
@@ -192,3 +194,78 @@ However, bugs do occur, so obviously they must be lurking in some of the code th
 One way to encourage programmers to write validation code is to have them write it before writing the rest of a method’s code. (This is similar to the way you can often get better comments if you write them before you write the code.) Writing the validation code fi rst ensures that it happens.
 
 This also has the advantage that you probably don’t yet know exactly how the fi nal code will work. You don’t have it all in your head whispering seductively, “You did a great job writing me. There’s really no need to validate the results.” You also don’t have preconceptions about how the code works, so you won’t be infl uenced in how you write the validation code. You can look for incorrectresults without making assumptions about where errors are impossible.
+
+### Practice Offensive Programming
+
+The idea behind defensive programming is to make code work no matter what kind of garbage is passed into it for data. The code should work and produce some kind of result no matter what.
+
+Unfortunately, this approach also hides errors. A better approach is to make code refuse invalid input.That way you know something is wrong and you can fix it. If something offends the code, it makes a big deal out of it.
+
+The following code shows an offensive version of the `Factorial` method
+
+```C#
+public int Factorial(int number)
+{
+Debug.Assert(number >= 0);
+checked
+{
+int result = 1;
+for (int i = 2; i <= number; i++) result *= i;
+return result;
+}
+}
+```
+
+The code begins with an assertion that verifies that the input parameter is at least 0.
+
+The method includes the rest of its code in a `checked` block. The `checked` keyword tells C# to not ignore integer overflow and throw an exception instead. That takes care of cases in which the input parameter is too big. If the program passes the new version of the Factorial function an invalid paramter, you'll know about it right away so you can fix it.
+
+### Use Exceptions
+
+When a method has a problem, there are a couple of ways to tell the program that something's wrong. Two of the most common methods are throwing an exception and passing an error code back to the calling code.
+
+An exception interrupts the program's execution and forces the code to take action. If you don't have any error handling code in place, the program crashes.
+
+In general it's better to throw an exception to indicate an error instead of returning an error code. That way, the program can't ignore a ptentially confusing situation.
+
+### Write Exception Handlers First
+
+Now that you're using assertions and exceptions to indicate errors, the code that calls your method needs to use exception handling to deal with those exceptions.
+
+Unfortunately, error handlers are a bit like comments in the sense that many programmers find them boring and don't like to write them. They're also a bit like validation doe because it's easy to assume theat they're not necessary because you know the code works.
+
+One way to create better error handlers is to follow the same strategy you can use whenwriting comments and validation doe. Do it first. When you start writing a method, paste in all the comments that you got from top-down design, add code to validate the inputs and verify the outputs and then wrap error handling code around the whole thing.
+
+First make the error handling code look for exceptions that you can expect to happen occasionally and that you can do something about(like trying to open a locked file).
+
+Next, add code that looks for other expected exceptions about which you can't do anything except complain to the user. That code should restate any exceptions in terms the user can understand. For example, instead of telling the user, “Arithmetic operation resulted in an overfl ow,” you can present a more meaningful message like, “All orders must include at least 1 item.”
+
+### Don't Repeat Code
+
+If you find that you're writing the same(or nearly the same) piece of code more than once, consider moving it into a separate method that you can call from multiple places. That obviously saves you the time needed to write the code more than once. More importantly, it lets you debug and maintain the code in a single place.
+
+Later, if you need to modify the code for some reason, you need to make the change only in one method. If the code were duplicated, you would update it in every place it occurred. If you forgot to update it in one place, the different copies of the code would be out of sync and that can lead to some extremely confusing bugs.
+
+
+### Defer Optimization
+
+    First make it work. Then make is faster if necessary
+
+Highly optimized code can be a lot of fun to write, but it can also be very confusing. That means it takes longer to write and test. It's also harder to read, so it's harder ro debug and fix if there is a problem.
+
+Meanwhile, even the least optimized code is usually fast enough to get the job done.To program as efficiently as possible, write code in the ,ost straightforward way you can, even if it's not the fastest way you can imagine. After you get the code working, you can decide whether it is so slow that it requires optimization.
+
+If you discover that the program isn't runing fast enough, take some time to determine where performance improvements will give you the most benefit.
+
+
+a profi ler is a program that monitors the progress of a
+program while it runs to identify the parts that are slow, that use the most memory,
+or that otherwise might be bottlenecks. Different profi lers work in different ways.
+For example, some add code (called instrumentation n ) to your program to record the
+number of times every method is called and the amount of time the program spends
+in each method.
+Profi lers are very handy for tracking performance problems
+
+Before you start optimizing code, make sure it works properly. Then if you do fi nd that performance
+is insuffi cient, carefully analyze the problem (using a profi ler if you can) so that you don’t waste time
+optimizing code that is already fast enough.
