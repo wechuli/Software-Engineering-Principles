@@ -107,3 +107,47 @@ To decide which bugs you should fix, you should use a simple cost/benefit analys
 After you evaluate all the bugs, you can assign priorities. Note that you may want the priorities to change over time.If your next release is a long time away, you can focus on the most severe bugs without work-arounds. If your time is limited, you can focus on the least risky bugs so that you don’t break anything else before the next release.
 
 ## Levels of Testing
+
+Bugs are easiests to fix if you catch them as soon as possible. After a bug has been in the code for a while, you forget how the code is supposed to work. That means you'll need to spend extra time studying the code so that you don't break anything.
+
+In order to catch bugs as soon as possible, you can use several levels of testing. These range from tightly focusses unit testing that examines the smallest possible pieces of code, to system and acceptance testing that exercises the system as a whole.
+
+### Unit Testing
+
+A unit test verifies the correctness of a spcific piece of code. As soon as you finish writing a piece of code, you should test it. Test it as thoroughly as possible because it will get harder to fix later.\
+
+Usually unit tests apply to methods. You write a method and then test it. If you can, you may even want to test parts of methods. That lets you catch bugs minutes or even seconds after they hatch.
+
+If you’re using an object‐oriented programming language, be sure to test code that doesn’t act like a normal method. For example, be sure to test constructors (which execute when you make a new object), destructors (which execute when you destroy an object), and property accessors (which execute when the program gets or sets a property’s value).
+
+You can often do a better job on a method's unit tests if you write them before you write the method. That way, you won't know what assumptions the code makes, so you won't make the same assumptions when you write the tests.
+
+You may also want to add more test cases after you write the code, so you can look for situations that the code might not handle correctly.
+
+Typically a test is another piece of code that invokes the code you are trying to test and then validates the result. After you write the tests and use them to verify that your new code works, you should save the test code for later use. Sometimes you may want to incorporate some or all the unit tests in regression testing.
+
+### Integration Testing
+
+After you write a chunk of code and use unit tests to verify that it works, it's time to integrate it into the existing codebase. An integration test verifies that the new method works and plays well with others. It checks that existing code calls the new method correctly, and that the new method can call other methods correctly.
+
+Integration typically focuses on the new code and other pieces of code that interact with it, but it should spend some time verifying that the new code didn't mess up anything that seems unrelated.
+
+**Regression testing** is used to test the program's entire functionaility to see if anything changed when you added new code to the project. These tests look for ways the program may have "regressed" to a less useful version with missing or damaged features.
+
+Ideally, when you finish unit testing a piece of code, you would then perform integration testing to make sure it fits in where it should and that it didn't break anything obvious. Then you perform regression testing to see if it broke something non-obvious.
+
+Unfortunately, performing regression testing on a large project can take a lot of time, so developers often postpone regression testing until a signifi cant amount of code has been added or modified.Then they run the regression tests. Of course, at that point there may be a lot of bugs and it may be hard to fi gure out which change caused which bug. Some of the “new” code may also not be all that new, so some of the bugs may be a bit older and therefore harder to fi x.To fix bugs as quickly as possible, you need to perform regression testing as often as possible.
+
+### Automated Testing 
+
+You might not have time to run through every test every day. Automated testing tools let you define tests and the results they should produce. After running a test, the testing tool can compare the results it got with expected results. Some tools can even compare images to see if a result is correct.
+
+Some tesing tools can run load tests that simulate a lot of users all running simultaneously to measure performance. For example, load tests can tell if too may users trying to access the same database will cause problems in your final release.
+
+### Component Interface Testing
+
+Component interface testing studies the interactions between components. This is a bit like regression testing in the sense that both examine the application as a whole to look for trouble, but component interface testing focuses on component interactions.
+
+A common strategy for component interface testing is to think of the interactions between components as one component sending a message(a request or a response) to another. You can then make each component record its interactions(plus a timestamp) in a file. To test the component interfaces, you exercise the system and then review the timeline of recorded events to see if everything makes sense.
+
+Planning ahead of time for component interface testing can also help with the application's design. thinking in terms of loggable messages passed between components helps keep the components decoupled and gives them a clearer separation. That makes them easier to implement and test separately.
