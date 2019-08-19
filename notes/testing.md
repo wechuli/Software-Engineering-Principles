@@ -190,3 +190,6 @@ The following list summarizes other categories of testing that differ in their s
 - **Security test** - Studies the application’s security. This includes security of the login process,
   communications, and data.
 - **Usability test** - Determines whether the user interface is intuitive and easy to use.
+
+## Testing Techniques
+
