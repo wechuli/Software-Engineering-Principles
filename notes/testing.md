@@ -138,7 +138,7 @@ Ideally, when you finish unit testing a piece of code, you would then perform in
 
 Unfortunately, performing regression testing on a large project can take a lot of time, so developers often postpone regression testing until a signifi cant amount of code has been added or modified.Then they run the regression tests. Of course, at that point there may be a lot of bugs and it may be hard to fi gure out which change caused which bug. Some of the “new” code may also not be all that new, so some of the bugs may be a bit older and therefore harder to fi x.To fix bugs as quickly as possible, you need to perform regression testing as often as possible.
 
-### Automated Testing 
+### Automated Testing
 
 You might not have time to run through every test every day. Automated testing tools let you define tests and the results they should produce. After running a test, the testing tool can compare the results it got with expected results. Some tools can even compare images to see if a result is correct.
 
@@ -151,3 +151,42 @@ Component interface testing studies the interactions between components. This is
 A common strategy for component interface testing is to think of the interactions between components as one component sending a message(a request or a response) to another. You can then make each component record its interactions(plus a timestamp) in a file. To test the component interfaces, you exercise the system and then review the timeline of recorded events to see if everything makes sense.
 
 Planning ahead of time for component interface testing can also help with the application's design. thinking in terms of loggable messages passed between components helps keep the components decoupled and gives them a clearer separation. That makes them easier to implement and test separately.
+
+### System Testing
+
+System testing is an end-to-end run-through of the whole system. Ideally, a system test exercises every part of the system to discover as many bugs as possible.
+
+A thorough system test may need to explore many possible paths of interaction with the application. Unfortunately, even simple programs usually contain a practically unlimited number of possible paths of interaction. In the end, you'll probably have to test the most common and most important scenarios, and leave some combinations untested.
+
+### Acceptance Testing
+
+The goal of acceptance testinf is to determine whether the finished application meets the customer's requirements. Normally, a user or other customer representative sits down with the application and runs through all the user cases you identified during the requirements gathering phase to make sure everything works as advertised.
+
+Acceptance testing is usually straightforward; although, depending on the nu,ber of use cases, it can take a long time.
+
+One mistake developers sometimes make is waiting until the application is finished before starting acceptance testing. You do need to perform acceptance testing then, but if that’s the first time the customer sees the application, there may be problems. Customers may decide that their interpretation of a use case is different from yours. Or they may decide that what they need is different from what they thought they needed during requirements gathering.
+
+In those cases, you’re much better off if you do a quick run‐through of each use case as soon as the application can handle it. Then if you need to change the requirements, you can do it while there’s still some time left in the development schedule and not at the end of the project when all of the programmers have scheduled overseas vacations.
+
+### Other Testing Categories
+
+Unit test, integration test, component interface test and system test categorize tests based on their scale with unit test being at the smallest scale and system test including the entire application.
+An acceptance test differs from a system test in the point of view of the tester. A system tester is typically a developer, whereas an acceptance tester is a customer representative.
+
+The following list summarizes other categories of testing that differ in their scope, focus, or point of view:
+
+- **Accessibility test** - Tests the application for accessibility by those with visual, hearing, or
+  other impairments.
+- **Alpha tes**- First round testing by selected customers or independent testers. Alpha tests usually uncover lots of bugs and defects, so they generally aren’t open to a huge number of users because that might ruin your reputation for building good software.
+- **Beta test** - Second round testing after alpha test. Generally, you shouldn’t give users beta versions until the application is quite solid or you might damage your reputation for building good software. Sometimes, beta tests are used as a sneaky form of a limited trial to build excitement for a new release in the user community.
+- **Compatibility test**- Focuses on compatibility with different environments such as computers running older operating system versions. Also checks compatibility with older versions of the application’s fi les, databases, and other saved data.
+- **Functional test** - Deals with features the application provides. These are generally listed in
+  the requirements.
+- **Destructive test** - Makes the application fail so that you can study its behavior when the worst happens. (Obviously, if you have good backups, you won’t actually destroy the code. You’ll destroy the application’s performance.)
+- **Installation test** - Makes sure you can successfully install the system on a fresh computer.
+- **Internationalization test** - Tests the application on computers localized for different parts of the world. This should be carried out by people who are natives of the locales.
+- **Nonfunctional test** - Studies application characteristics that aren’t related to specifi c functions the users will perform. For example, these tests might check performance under a heavy user load, with limited memory, or with missing network connections. These often identify minimal requirements.
+- **Performance test** - Studies the application’s performance under various conditions such as normal usage, heavy user load, limited resources (such as disk space), and time of day. Records metrics such as the number of records processed per hour under different conditions.
+- **Security test** - Studies the application’s security. This includes security of the login process,
+  communications, and data.
+- **Usability test** - Determines whether the user interface is intuitive and easy to use.
