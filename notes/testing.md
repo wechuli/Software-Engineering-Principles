@@ -193,3 +193,69 @@ The following list summarizes other categories of testing that differ in their s
 
 ## Testing Techniques
 
+The following sections describe some approaches to designing tests to find as many bugs as possible.
+
+### Exhaustive Testing
+
+In some cases, you may be able to test a method with every possible input. This sort of exhaustive testing conclusively proves that a method works correctly under all circumstances, so it's the best you can possibly do. Unfortunately, most methods take too many combinations of input parameters for you to exhaustively try them all.
+
+Because most methods take too many possible inputs, exhaustive testing won't work most of the time. In those cases, you need to turn to one of the following methods.
+
+### Black-Box Testing
+
+In black-box testing, you pretend the method is a black box that you can;t peek inside. You know what is it supposed to do but you have no idea how it works. You then throw all sorts of inputs at the method to see what it does.
+
+You can start black-box testing by sending it a bunch of random inputs. Remember that you need to perform these tests only occasionally, not every time the program runs, so you can test a lost of random values.
+
+Even if you don't know how the method works, you can try to guess values that might mess it up. Typically ,those involve special values like 0 for numbers and blank for strings. They may also include the largest and smallest possible values. For strings, that might mean a string that's all blanks or all ~ characters.
+
+If a method takes a variable number of inputs, make sure it can handle 0 inputs and a really large number of inputs. If it takes an array or list as aparameter, see what it does if the array or list os empty or missing.
+
+### White-Box Testing
+
+In white-box testing, you get to know how the method does its work. You then use your extra knowledge to design tests to try to make the method crash and burn.
+
+White-box testing has the advantage that you know how the method works, so you can try to pick particularly difficult test cases. Unfortunately, it has the disadvantage that you know how the method works, so you might skip some tests cases that you assume work.
+
+Use white-box testing to create tests you know will be troublesome, but don't skip tests that you "know" the method can handle.
+
+### Gray-Box Testing
+
+Gray-box testing is a combination of a white-box and black-box testing. Here you know some but not all the internals of the method you are testing. Your partial knowledge of the methods lets you design specific tests to attack it.
+
+## Testing Habits
+
+### Test and Debug When Alert
+
+You should test and debug when you are alert. Then when something goes wrong, you'll be more likelt to understand what the program is supposed to be doing, what it is actually doing and how to fix it. Debugging while tired is a good way to add new bugs to the program.
+
+### Test You Own Code
+
+Before you check your code in, test it yourself. This is the last chance you have to find your own bugs before someone else does.
+
+### Have SomeOne Else Test Your Code
+
+It's important to test your own code, but you're too close to your code to be objective. You have assumptions about how it works that unconscously influence the tests you perform. To find as many bugs as possible, you also need someone with a fresh perspective to test it.
+
+Mistakes happen all the time, particularly in software development. It's important to thank the tester for pointing out this flaw, fix it and move on with no hard feelings.
+
+#### The Rules of Egoless Programming
+
+1. Understand and accept that you will make mistakes. Everyone makes mistakes. Try to avoid mistakes,
+   but realize that they will occur anyway. No one else programs without any mistakes, so why should you?
+2. You are not your code. Just because you wrote a piece of flawed code, that doesn't make you a bad person. Don't take the bug home with you.
+3. No matter how much “karate” you know, someone else will always know more. Even the greatest programmers of all time sometimes learn from others.
+4. Don't rewrite code without consultation. By all means fix bugs, but don’t rewrite sections of code without consulting with your team. Bulk rewrites should be performed only for good reasons (like replacing a buggy section of
+   code or rearranging code so that it can be broken up into separate methods), not because you don’t like someone’s indentation or variable names. If it ain’t broke, don’t fi x it.
+5. Treat people who know less than you with respect, deference and oatience.Even you started out as a programming novice. You made simple mistakes, did things the hard way because you didn’t know better, and asked naive questions
+   (if you were smart enough to ask questions). Be patient and don’t reinforce the stereotype that good programmers are all prima donnas
+6. The only constant in the world is change. After a while, programmers tend to become comfortable with what they know. Unfortunately, change happens anyway whether you like is or not. Embrace change and see of it van work in your favor.
+7. The only true authority stems from knowledge, not from position.Don’t use your position (as lead developer, senior architect, or even corporate vice president) to force your point of view down others’ throats. Base your
+   decisions on facts and let the facts speak for you.
+8. Fight for what you believe, but gracefully accept defeat. Programming tasks rarely have a single unambigous solution. There’s always more than one way to tackle a problem. If the group doesn’t decide to take your
+   approach, don’t worry about it. If the result is good enough, then it’s good enough.
+9. Don't be "the guy in the room". Sometimes you may need to close your dooe and bang out some code, but don't go into hibernation. Stay engaged with the other developers so you can collaborate with them effectively.
+10. Critique code instead of people - be kind to the code, not to the code.
+
+
+### Fix Your Own Bugs
