@@ -257,5 +257,36 @@ Mistakes happen all the time, particularly in software development. It's importa
 9. Don't be "the guy in the room". Sometimes you may need to close your dooe and bang out some code, but don't go into hibernation. Stay engaged with the other developers so you can collaborate with them effectively.
 10. Critique code instead of people - be kind to the code, not to the code.
 
-
 ### Fix Your Own Bugs
+
+When you fix a bug, it's important to understand the code as completely as possible. If you wrote a piece of code, you probably have a greater understanding of it than your fellow programmers do. That makes you the logical person to fix it. Anyone else will need to spend more time coming up to speed on what the code is supposed to do and how it works.
+
+If you made a mistake, it may be useful to fix it yourself so that you can learn how to avoid that mistake in the future.
+
+### Think Before You Change
+
+It's common to see novice programmers randomly changing code around hoping one of the changes will make a bug go away. This is certainly an extremely bad way to fix software. If you're making random changes, you're not paying attention to what the changes are doing. If a change makes a bug disappear, you don't really know if it fixed the bug or just hid it. You don't know if the change added a new bug (or several). You also missed out on an opportunity to learn something so you won't make the same mistake in the future.
+
+### Don't Believe in Magic
+
+Suppose you’ve spent hours chasing a bug. You’ve made some test changes and the bug has gone away. It’s remarkable how many developers stop at that point, pat themselves on the back, and call it a job well done.
+
+Unless you know why the changes you made fixed the bug, you can't assume the bug is really gone. Sometimes you've just hidden it. Or perhaps it went away for completely unrelated reasons.
+
+Before you cross a bug off your To Do list, make sure you understand exactly what changed you made and why they worked. Also ask yourself if the changes will have bad consequences.
+
+### See What Changed
+
+If you're debugging new code, you can't check an older version to see what changed, but if you're chasing a bug in code that has been recently modified(perhaps due to a bug fix), see what's changed. Sometimes the difference makes the bug pop oit and saves you hours of work.
+
+### Fix Bugs, Not Symptoms
+
+Sometimes developers focus so closely on the code that they don't see the bigger picture. They find a line of code that contains a bug and fix it without considering whether there's a larger issue.
+
+Look at the entire context of the code that contains a bug and ask yourself whether you're fixing a bug or a symptom of something bigger. Make sure you understand the whole problem before you act.
+
+### Test Your Tests
+
+If you write a bunch of tests for a method and those tests don't find any bugs, how do you know they're working? Perhaps the tests are flawed and they don't detect errors correctly.
+
+After you write your tests, add a few bugs to the code you're testing and make sure the tests catch them. Basically you need to tests the tests.
