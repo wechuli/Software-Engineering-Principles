@@ -290,3 +290,15 @@ Look at the entire context of the code that contains a bug and ask yourself whet
 If you write a bunch of tests for a method and those tests don't find any bugs, how do you know they're working? Perhaps the tests are flawed and they don't detect errors correctly.
 
 After you write your tests, add a few bugs to the code you're testing and make sure the tests catch them. Basically you need to tests the tests.
+
+## How to Fix a Bug
+
+Obviously, when you fix a bug you need to modify the code, but there are few other actions you should also take.
+
+- First, ask yourself how you could prevent a similar bug in the future. What techniques could you use in your code? What tests could you run to detect the bug sooner?
+- Second, ask yourself if a similar bug could be lurking somewhere else. Do a search of the rest of the project's code to see if you can find this bug's cousins.
+- Third, look for bugs hidden behind this one. Sometimes, the sysmptoms of one bug mask the symptoms of another.
+- Fourth, examine the code's method and look for other possibly unrelated bugs. Bugs tend to travel in swarms.
+- Lastly, make sure your fix doesn't introduce a new bug. The chances of a line of modified code containing a bug are much higher than those for an original line of code. Take extra care to try to not cause more problems than you solve. Then thoroughly test your changes to make sure they worked and that they didn't break anything.
+
+## Estimating Number of Bugs
