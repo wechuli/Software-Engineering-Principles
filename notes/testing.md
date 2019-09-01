@@ -302,3 +302,38 @@ Obviously, when you fix a bug you need to modify the code, but there are few oth
 - Lastly, make sure your fix doesn't introduce a new bug. The chances of a line of modified code containing a bug are much higher than those for an original line of code. Take extra care to try to not cause more problems than you solve. Then thoroughly test your changes to make sure they worked and that they didn't break anything.
 
 ## Estimating Number of Bugs
+
+One of the unfortunate facts about bugs is that you can never tell when the're all gone. Similarly you can't know the number of bugs lurking in a project.
+
+### Tracking Bugs Found
+
+One method for estimating bugs is to track the number of bugs found over time. Typically, wehn testing gets started in a serious way, this number increases. After the testers have uncovered the most obvious bugs, the number levels off. Hopefully, the number of bugs found eventually declines.
+
+This approach is easy , intuitive and doesn't require a lot of extra work, so it's a good start.
+
+Unfortunately, this approach has a couple of problems. First, it tends to track the easiest bugs to find. The graoh declines because you're running out of easy-to-find bugs, but there may still be plenty of sneakier bugs lying in wait.
+
+Similarly, this kind of estimate assumes your test coverage is equally good on all parts of the project. If you’ve neglected part of the application or failed to look for a particular kind of bug (for example, invalid customer data), there may be a whole slew of bugs remaining that you don’t know about. Sometimes, you can see this effect when you add a new test to your automated test suite and suddenly a whole bunch of new bugs appear.
+
+Some testing tools can measure code coverage, the lines of code that are executed during a demonstration or a suite of tests. They can tell you how many times a particular piece of code has been exercised.You should use code coverage tools to make sure that every part of the system is visited at least once by the tests. Executing a line of code doesn’t guarantee that you’ve found any bug in that line. However, if you don’t execute a chunk of code, you’re guaranteed not to fi nd any bugs hiding there.
+
+### Seeding
+
+Another approach for estimating bugs is to "seed" the code with bugs. Simply scatter some bugs throughout the application.
+
+Run your tests and see how many of the artificial bugs you found. If the uninentional bugs are about as good at hiding as the bugs you planted, you should be able to estimate the number of bugs remaining.
+
+Unfortunately, it’s a lot easier to create simple bugs by tweaking a line of code here and there than it is
+to create complex bugs that involve interactions between several methods in different modules. That
+means the seeding method can greatly underestimate the number of complicated and subtle bugs.
+
+### The Lincoln Index
+If two testers find E1 and E2 errors respectively, of which S are in common, then the Lincoln index is given by the following equation
+
+        L = E1 * E2/S
+
+## Summary
+
+Even though you cannot remove every bug from a program, you can usually remove enough bugs that the remaining ones don't appear too often and don't inconvenience users too much.
+
+The key to finding bugs so that you can remove them is testing. By constantly testing code at small, medium, and large scales, you can find bugs as soon as possible and make removing them easier.
