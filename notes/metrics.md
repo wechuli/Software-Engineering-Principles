@@ -76,4 +76,33 @@ fi x a whole bunch of defects in future projects by addressing a single issue. P
 more time running through use cases with the customers before you fi nalize the specifi cation, you
 can avoid some of these defects.
 
-## Ishikawa Diagrams
+#### Ishikawa Diagrams
+
+To figure out in which category a defect belongs, ask what task was being performed when the defect was created. Often, however, a defect is the end of a sequence of events that was started by some primordial mistake.
+
+Sometime discovering the root cause of a defect can be challenging. One tool that can help is the Ishikiwa diagram. They're also called cause and effect diagrams.
+
+To make an Ishikawa diagram, write the name of the defect you’re trying to analyze (Incorrect
+Username/Password Validation) on the right of a sheet of paper. (This is the head of the fi sh.)
+Next draw a horizontal arrow pointing to the defect name from left to right. (This is the fish’s backbone.)
+Now think of possible causes and contributing factors for the defect. Represent them with angled arrows
+leading into the spine. (These are the fi sh’s ribs.) Label each arrow with the cause you identifi ed.
+For each of the fi sh’s ribs, think about causes and contributing factors for that rib. Add them, again
+with labeled arrows. Continue adding contributing factors to each of the factors you’ve already
+listed until you run out of ideas
+
+The exact format of the diagram doesn’t matter too much and there are several variations in style.
+The only things that are really consistent among most diagrams are
+
+- The effect or outcome is on the right
+- There's a backbone
+- Arrows(or lines) lead from causes to intermediate causes or effects
+- Arrows(or lines) are labeled
+
+![](ishikawa.PNG)
+
+After you build an Ishikawa diagram for a defect, take a close look at each of the possible causes and decide which ones actually helped cause the defect. Highlight causes that did play a role and cross out those that didn't. If you're not sure about a cause, study it further, possibly adding contributing causes to it.
+
+When you're finished, you should have discovered the root cause of the defect.
+
+## Software Metrics
