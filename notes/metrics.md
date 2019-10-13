@@ -106,3 +106,57 @@ After you build an Ishikawa diagram for a defect, take a close look at each of t
 When you're finished, you should have discovered the root cause of the defect.
 
 ## Software Metrics
+
+The defect analysis technique described in the previous sections are more or less qualitative. They help you charcterize defects based on their discoverer, severity and age at time of removal.
+
+In contrast, software metrics give you quantitative measurements of a project. Before you learn what kinds of metrics you can analyze, you should know a few metric-related terms.
+
+An attribute is something you can measure. It could be the number of lines of code, the number of defects etc
+
+A metric is a value that you use to study some aspect of a project. Sometimes a metric is the same as an attribute. For example, you might get useful information about a project from the number of bug reports you have received. Often metrics are calculated values. For example, you may want to look at bug reports per week or bug reports per line of code instead of just the total number of bug reports.
+
+After you have metrics, you study them to see if any of them are good indicators of the project’s future. For example, consider the metric “comments per thousand lines of code (KLOC).” If comments per KLOC is 3, that may be an indicator that the project will be hard to maintain.
+
+You can then do two things with your indicators. First, you can use them to predict the future of your current project.
+
+The second thing you can do with indicators is make strategy improvements for future projects.
+
+In summary:
+
+- Measure relevant attributes
+- Use the attributes to derive meaningful metrics
+- Use metrics to create indicators
+- Use indicators to predict the project's future
+- Use indicators to make process improvements
+
+### Using Metrics
+
+Metrics have several possible uses. You can use them to:
+
+- Minimize a schedule
+- Reduce the number of defects
+- Predict the number of defects that will arise
+- Make defect removal easier and faster
+- Assess ongoing quality
+- Improve finished results
+- Improve maintenance
+- Make sure a project is on schedule
+- Detect risks such as schedule slip, excessive bugs or features that won't work and adjust staffing and work effort to address them
+
+Metrics and indicators are often grouped into two categories depending on how you use them: process metrics and project metrics.
+
+### Process Metrics
+
+Process metrics are designed to measure your organization's development process. You collect them over a long time period for many projects, and then use them to fine-tune the way you do software engineering.
+
+### Project Metrics
+
+Project metrics( which are sometimes called product metrics because they are about a specific product) are intended to measure and track the current project. They let you use past performance to predict future results. Based on your predictions, you can adjust your strategy to improve those results.
+
+You can also use project metrics to set goals
+
+## Things to Measure
+
+The things you can measure on a software project are practically limitless. Fortunately, you need to track only a few metrics to get a good sense of how a project is progressing.
+
+At a high level, there are two kinds of metrics you should track: inputs and outputs. Inputs are the things that you spend on the project.
