@@ -160,3 +160,63 @@ You can also use project metrics to set goals
 The things you can measure on a software project are practically limitless. Fortunately, you need to track only a few metrics to get a good sense of how a project is progressing.
 
 At a high level, there are two kinds of metrics you should track: inputs and outputs. Inputs are the things that you spend on the project.
+
+### Inputs
+
+- **Cost** - Money spent on the project for hardware, software, development tools, networking services, paper, training and so forth.
+- **Effort** - This is the amount of work being put into the project. It is usually measured in person hours.
+- **Defect rates** - The number of defects discovered over time. Defect rates are also fairly easy to measure.
+- **Lines of code(LOC)** - The number of lines of code produced per day.
+- **Pages of documentation** - There are several kinds of documentation that you might want to track. Project documentation (such as the specification and design documents) are important because they ensure that everyone is working toward a common vision. If you don't have enough of this kind of documentation, different team members may end up working at cross-prposes, resulting in extra defects and difficut long-term maintenance.
+  User documentation is obviously important to the end users. If you have too little, the users won't figure out how to use your program.
+  User documentation also reflects the complexity of the application. If you need a lot of documentation to explain the program, that may mean the design is overly complicated and that may slo indicate a lot of future defects amnd maintenance problems.
+
+You can measure all those attributes fairly directly. Some other attributes are harder to measure directly. The're either hard to quanity or they're subjective. The following describes some of those items and how you migh try to measure them
+
+- **Functionality** - How well does the application do what is is supposed to do ? How well does it let the users do their jobs? This is quite subjective, but you can measure things such as the numbers of help requests, change requests, and user complaints.
+- **Quality** - Do the users think of this as a high‐quality application? Is it relatively bug‐free?
+  Again, this is subjective, but you can track user complaints to get some idea. You can also
+  do user surveys.
+- **Complexity** - How complex is the project ? This is hard to measure directly. The amount of project documentation gives you a hint about the project's complexity. Lots of documentation may indicate a complex project that needs a lot of explaining.
+  There are a lot of other ways to estimate complexity. You can count the if‐then statements in the code because they determine the number of paths through the code. You could also count the number of loops or other complicated code features such as recursion and particular data structures. Unfortunately, making all those counts is a fair amount of extra work.
+- **Efficiency** - How efficient is the application? In rare cases, you can calculate the theoretical
+  maximum effi ciency possible and compare the application to that. For example, you might determine that a routing program fi nds solutions within 15 percent of the optimal routes. In general, however, this is hard to measure.
+- **Reliability** - How reliable is the application? This one is a little easier to measure. You can keep track of the number of times the program crashes or produces an incorrect result.
+- **Maintainability** - How easy will it be to maintain the application in the long term ? You can get some notion of how hard mainteance will be by looking at other metrics such as the amount and quality of the project documentation, the number of comments and the code complexity, but usually you won't really know how maintenable the project is unitl you've been maintaining it for a while.
+
+One problem with all metrics is that they're hard to apply to projects of different sizes. Studies have shown that projects of different sizes have different charasteristics. One way to make metrics a bit more meaningful for different project sizes is to normalize them by performing some calculation on them to account for possible differences in project size. There are two general approaches for malizing metrics: size normalization and function point normalization.
+
+### Size Normalization
+
+In size-oriented normalization, you divide an attribute's value by the project's size to get some sort of value per unit of size. Assuming everything about two projects is simila except for their sizes (a big assumption), the normalized metrics should be comparable.
+
+The following list gives some of the measurements of size that you can use to normalize values:
+
+- Number of team members
+- Effort (person-months)
+- KLOC or LOC
+- Cost
+- Pages of documentation
+- Number of bugs
+- Number of defects
+- Time
+
+Divide an attribute value by the value that makes most sense.
+
+### Function Point Normalization
+
+The real problem with size-oriented normalization is that it's tied to a particular implementation of an application, not to the application's inherent complexity. Function-point(FP) normalization tries to fix that by calculating a FP number to represent the application's complexity. You then divide various attributes such as lines of code or number of bugs by the FP value to get a normalized result.
+
+Function points measure a project from the user's point of view so they count what the application does not how it does it. Because they are measured from the user's point of view, they should be hardware-independent and software-independent.
+
+## Summary
+- You can rate a defect's importance by discoverer, severity, time created and age at fix
+- Group defects by task (specification, design, programming, hardware and so forth) to look for common causes.
+- An Ishikawa diagram can help you find the root causes of a defect
+- Attributes are things you can measure; metrics are values you can use to evaluate a project and indicators give indications of a project's state and future
+- Attributes->metrics->indicators->projections and process improvements
+- Software metrics let you characterize, track and predict a project's characteristics such as defects, bugs and lines of code written
+- Process metrics are used to improve your development process in the long run. Project (or product) metrics are used to track and predict the current project's progress.
+- Size-normalized metrics enable you to compare projects of different sizes but similar complexities. These metrics are values divided by measure of the project's size.
+- Function points enable you to estimate a project's complexity
+- Function points normalization enables you to compare projects of different sizes and complexities.
