@@ -50,3 +50,47 @@ Unfortunately, the tools on which your application relies may also be interrelat
 Second, you can just ignore new releases of operating systems, databases, toolkits and any other external tools that you use.
 
 These days, many products install new releases automatically, so its harder to avoid having some product upgrade itself and break something.
+
+### Corrective Tasks
+
+Corrective tasks are simply bug fixes.
+
+To fix a bug; find it, study the code so that you're sure you understand it, fix the bug, test and release a new version of the application with the bug fixed.
+
+One of the worst ways to fail to fix a bug is to lose track of it. To avoid losing bugs, you need a bug tracking system.
+You can assign a state to each bug to keep track of its status within the system. The following list describes typical states that a bug tracking system might use:
+
+- **New** - The bug just arrived and has not yet been assigned to anyone
+- **Assigned** - The bug has been assigned to someone to fix
+- **Reproduced** - The bug has been reproduced by a team member. The bug's descrition includes instructions for reproducing the bug.
+- **Cannot Reproduce** - A team memeber has examined the program and can't make the bug occur.
+- **Pending** - A request for more information has been sent to the customer who reported the bug.
+- **Fixed** - The bug has been fixed but not tested yet.
+- **Tested** - the fix has been thoroughly tested and the bug us verified as gone
+- **Deferred** - The bug should not be fixed, or atleast not yet.
+- **Closed** - The bug has been either fixed, deferred or otherwise abandoned
+- **Reopened** - The bug reappeared after neing closed. The bug should probably be treated as if it were a new bug.
+
+Bug tracking applications typically come with an assortment of features. For example, they may reproduce reports showing bugs in various states, bugs cleared over a period of time, bugs assined to a particular developer. Some can notify developers via e-mail or some other method when bugs are assinged to them. Some systems can even automaticlly mode bugs from one state to another.
+
+Priority is also key. Some bugs are more important than others. If one bug makes the application crash every day or two and a second is more benign, the first bug probablt deserves higher priority.
+
+### Preventive Tasks
+
+Preventive tasks involve restructuring the code to make it easier to debug and maintain in the future aka refactoring.
+
+Despite the dangers, there are several reasons why you might want to refactor code and a few reasons not to. The following sections describe some of the most important of those reasons'
+
+#### Clarification
+
+If a piece of code is confusing, you should add comments to it explaining how it works. You should do that as you're writing code or immediatelt after you finish writing it, while the code is still fresh in your mind. Later, when people need to read the code (including you after you've forgotten how it works), they have a chance of understandinf how the code works.
+
+To write good comments, you need to spend a lot of time studying the code carefully so that you're sure you understand how it works.
+
+#### Code Reuse
+
+Sometimes when you're modifying code, you realize you've done something similar before. Instead of repeating yourself, it may make more sense to extract the common code into a new class or method that you can call from multiple locations. Then when you need to do the same thing a thirdm forth time, you won't need to write the same code all over again.
+
+The real benefit of code reuse it in maintaining the code later.
+
+The DRY(don't repeat yourself) principle says you should extract common code any time you repeat yourself.
