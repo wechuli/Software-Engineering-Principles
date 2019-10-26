@@ -94,3 +94,80 @@ Sometimes when you're modifying code, you realize you've done something similar 
 The real benefit of code reuse it in maintaining the code later.
 
 The DRY(don't repeat yourself) principle says you should extract common code any time you repeat yourself.
+
+#### Improved Flexibility
+
+Sometimes, when you modify a piece of code, you realize the code isn't as flexible as you'd like. It was written in a way that made sense at the time, but that prevents you from easily making the changes you now need to make.
+
+#### Bug Swarms
+
+Bugs tend to travel in swarms. What that means is some methods, modules or classes tend to be buggier than others.
+
+A piece of code has produced a lot og bugs in the past and is likely to continue spawning bugs in the future. At some point, it's better to step back, study the code to that you understand what is supposed to do, and reqrite from scratch.
+
+#### Bad Programming Practices
+
+Fixing bad programming practices is both a good reason and a bad reason to refactor code.It’s a good reason because the result can be code that is easier to understand, test, debug, and modify. It’s a bad reason because, in theory at least, you shouldn’t have any bad programming practices in your code.
+
+Ideally, after you write a piece of code, you should review it and make sure you've followed good programming practices.
+
+Some bad programming practices include:
+
+- The code is too long
+- The code is duplicated
+- A loop is too long
+- Loops are nested too deeply
+- It doesn't do much
+- It's never used
+- It has a vague or unfocused purpose
+- It performs more than one task
+- It takes a lot of parameters
+
+### Individual Bugs
+
+Finding an individual bug is not a good reason to reqrtite code. If you find a single bug in a method, just fix it and move on.
+
+### Not Invented Here
+
+This is the worst reason for reqwriting code, but it's also probably the most common. The problem isn't actually the code; it's that the second proframmer didn't write it. Thinking you need to reqrite a piece of code just because someone else wrote it is called not invented here synfrome (NIHS)
+
+If the code works correctly, is fast enough to satisfy your needs and doesn't contain a swarm of bugs, leave it alone.
+
+## Task Execution
+
+Whether you need to modify existing code for perfective, adaptive, corrective or preventive reasons, you need to follow roughly the same steps to make useful changes without adding new bugs. At a high level, the steps you follow are roughly the same as those that go into initial development:
+
+- Requirement gathering
+- High-level design
+- Low-level design
+- Development
+- Testing
+- Deployment
+
+## Summary
+
+Maintenance is somewhat similar to normal development. You still need to perform roughly the same tasks. Testing is particularly important so that you don't introduce too many new bugs when you fix old ones.
+
+- Maintenance is expensive , sometimes accounting for up to 75 percent of a project’s total
+  cost.
+- One reason why maintenance is expensive is that applications often live far longer than
+  expected.
+- Maintenance tasks can be divided into four categories:
+  ➤ Perfective tasks improve, modify, or add features to a project.
+  ➤ Adaptive tasks modify an application to work with changing conditions in the
+  environment such as a new operating system version or changes to external interfaces.
+  ➤ Corrective tasks are bug fi xes.
+  ➤ Preventive tasks (refactoring) modify the code to make it easier to maintain in the
+  future.
+- Sometimes developers learn what they need to do to build a system while making the fi rst
+  version, so the second version is the fi rst good one (the second system effect).
+- Sometimes a system’s second version is bloated and full of unnecessary bells and whistles, so
+  the third version is the fi rst good one (the third time’s a charm effect).
+- Bugs typically travel through some of the following states: New, Assigned, Reproduced,
+  Cannot Reproduce, Pending, Fixed, Tested, Deferred, Closed, and Reopened.
+- You don’t always need to refactor code, even if it doesn’t follow good programming
+  guidelines. (If it ain’t broke, don’t fi x it.)
+- To perform maintenance tasks successfully, you need to follow the normal software
+  engineering steps: requirement gathering, high‐level design, low‐level design, development,
+  testing, and deployment. (Although you can often abbreviate some of those steps. You
+  probably don’t need extensive high‐level design to fi x a one‐line bug.)
