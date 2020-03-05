@@ -4,7 +4,7 @@
 - The characteristics of good requirements
 - The MOSCOW method for prioritizing requirements
 - Audience-oriented, FURPS and FURPS+ method for categorizing requirements
-- Methods for gathering customer goals and turing them into requirements
+- Methods for gathering customer goals and turning them into requirements
 - Brainstorming techniques
 - Methods for recording requirements such as formal specifications, user stories, and prototypes
 
@@ -16,15 +16,15 @@ Requirements are the features that your application must provide. At the beginni
 
 Good requirements are clear, concise and easy to understand. To be clear, requirements cannot be vague or ill-defined. Each requirement must state in concrete, no-nonsense terms exactly what it requires.
 
-### Unambigous
+### Unambiguous
 
-In addition to being clear and concrete, a requirement must be unambigous. If the requirement is worded so that you can't tell what it requires, then you can't build a system to satisfy it. As you write requirements, do your best to make them unambigous. Read them carefully to make sure you can't think of any way to interpret them other than the way you intend.
+In addition to being clear and concrete, a requirement must be unambiguous. If the requirement is worded so that you can't tell what it requires, then you can't build a system to satisfy it. As you write requirements, do your best to make them unambiguous. Read them carefully to make sure you can't think of any way to interpret them other than the way you intend.
 
 ### Consistent
 
-A project's requirements must be consistent with each other. That means not only that they cannot contradict each other, but they also don't provide so many constraints that the problem is unsolvable. Each requirement must also be self-consistent. In a complex project, it's not always obvous if a set of requirements is mutually consistent. Sometimes any pair of requirements is satisfiable but larger combinations of requirements are not
+A project's requirements must be consistent with each other. That means not only that they cannot contradict each other, but they also don't provide so many constraints that the problem is unsolvable. Each requirement must also be self-consistent. In a complex project, it's not always obvious if a set of requirements is mutually consistent. Sometimes any pair of requirements is satisfiable but larger combinations of requirements are not
 A common software engineering expression is "Fast,good,cheap.Pick two"
-Try to kepp new requirements consisten with existing requirements.
+Try to keep new requirements consistent with existing requirements.
 
 ### Prioritized
 
@@ -82,7 +82,7 @@ FURPS is an acronym for this system's requirement categories: functionality, usa
 - _Functionality_ - What the application should do. These requirements describe the system's general features including what is does, interfaces with other systems, security etc
 - _Usability_ - What the program should look like. These requirements describe user-oriented features such as the application's general appearance, ease of use, navigation methods and responsiveness.
 - _Reliability_ - how reliable the system should be. These requirements indicate such things as when the system should be available, how often it can fail and how accurate the system is
-- _Performance_ - How efficient the system should be. These requirements describe such things as the application's speed, memory usage, disk udage and database capacity.
+- _Performance_ - How efficient the system should be. These requirements describe such things as the application's speed, memory usage, disk usage and database capacity.
 - _Supportability_ - How easy it is to support the application. These requirements include such things as how easy it will be to maintain the application, how easy it is to test the code and how flexible the application is
 
 ## FURPS+
@@ -114,7 +114,7 @@ The following list summarizes some specific requirements that arise in many appl
 
 - **Screens** - What screens are needed?
 - **Menus** - What menus will the screens have ?
-- **Navigation** - How will the users navigate through different parts of the system. Will they click buttons, use menus, or click forward and backward arows? Or some combination of those methods?
+- **Navigation** - How will the users navigate through different parts of the system. Will they click buttons, use menus, or click forward and backward arrows? Or some combination of those methods?
 - **Work flow** - How does data move through the system
 - **Login** - How is login information stored and validated?
 - **User types** -Are there different kinds of users? Do they need different privileges?
@@ -142,21 +142,21 @@ Start by listening to the customers. Learn as much as you can about the problem 
 
 ### Study Users
 
-Interviewing customers(and users) can get you a lot of information, but iften customers won't tell you everything they do or need to do. By studying users as they work, you can learn more about what they need to do and how they are currently doing it. Then with your software-engineering perspective, you can look for solutions that might not occur to the users. As you study the users, pay attention to how they do things. Look at the forms they fill out(paper or online). Figure out where they spend most of their time. Look for the tasks that go smoothly and those that don't. You can use that information to identify areas in which your project can help.
+Interviewing customers(and users) can get you a lot of information, but often customers won't tell you everything they do or need to do. By studying users as they work, you can learn more about what they need to do and how they are currently doing it. Then with your software-engineering perspective, you can look for solutions that might not occur to the users. As you study the users, pay attention to how they do things. Look at the forms they fill out(paper or online). Figure out where they spend most of their time. Look for the tasks that go smoothly and those that don't. You can use that information to identify areas in which your project can help.
 
 ## Refining Requirements
 
 After you've talked to the customers and users and watched the users at work, you should have a good understanding about the users' current operations and needs. Next, you need to use what you've learned to develop ideas for solving the user's problems. You need to distill the goals(what the customers need to do) into approaches(how the application will do it)
-Moving from goals to requirements often forces you to make some design decisions. The follwing describe 3 approaches for converting goals into requirements
+Moving from goals to requirements often forces you to make some design decisions. The following describe 3 approaches for converting goals into requirements
 
 ### Copy Existing Systems
 
-If you're building a system to replace an existing system or a manual process, you can often use many of the behavious of the existing system as requirements for the new one.
+If you're building a system to replace an existing system or a manual process, you can often use many of the behaviors of the existing system as requirements for the new one.
 This approach has a few advantages:
 
 - It's reasonable straightforward. You can dig through the existing application and find out what it does.
-- This approach also makes it more likely that the requirements can actually be satisifed.
-- This approach provides an unambigious example of what you need to do.
+- This approach also makes it more likely that the requirements can actually be satisfied.
+- This approach provides an unambiguous example of what you need to do.
 
 There are some disadvantages to this approach:
 
@@ -182,9 +182,9 @@ After you decide what should be in the requirements, you need to write them down
 
 ### UML
 
-The Unified Modeling Language(UML) lets you specify how parts of the system should work. Despite its name, UML isn't a single unified language.Instead it uses several kinds of diagrams to represent different pieces of the system.Some of those represent program items such as classes. Others represent behavious such as the way objects interact with each other and the way data flows through the system.
+The Unified Modeling Language(UML) lets you specify how parts of the system should work. Despite its name, UML isn't a single unified language.Instead it uses several kinds of diagrams to represent different pieces of the system.Some of those represent program items such as classes. Others represent behaviors such as the way objects interact with each other and the way data flows through the system.
 
-Therre are some drawbacks with using UML, most notably, it's complicated. Specifying complex requirements with UML is only useful if everyone understands the UML
+There are some drawbacks with using UML, most notably, it's complicated. Specifying complex requirements with UML is only useful if everyone understands the UML
 
 ### Use Stories
 
@@ -211,9 +211,9 @@ How formally you need to write up the requirements depends on your project. Thes
 ## Validation and Verification
 
 After you record the requirements, you still need to validate them and later verify them. 
-Requirements validation is the process of making sure that the requirements say the right things. Someone, often the customers or users, need to work through all the requirements and make sure that they are 1. describe things the applicaion should do 2. Describe everything the application should do.
+Requirements validation is the process of making sure that the requirements say the right things. Someone, often the customers or users, need to work through all the requirements and make sure that they are 1. describe things the application should do 2. Describe everything the application should do.
 
-Requirement verification is the process of checking that the finsihed application actually satisfies the requirements.
+Requirement verification is the process of checking that the finished application actually satisfies the requirements.
 
 ## Changing Requirements
-In many projects, requirements evolve over time. As work proceeds, you may discover that something you thought would be easy is hard. Often, changes are driven by the customers. After they start to see working pieces of the application, they may think of other items that they hadn't thought of before. Depending on the kind of project, you may accomodate some changes as long as they don't get out of hand.
+In many projects, requirements evolve over time. As work proceeds, you may discover that something you thought would be easy is hard. Often, changes are driven by the customers. After they start to see working pieces of the application, they may think of other items that they hadn't thought of before. Depending on the kind of project, you may accommodate some changes as long as they don't get out of hand.

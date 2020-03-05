@@ -2,7 +2,7 @@
 
 A formal definition of software engineering might be 'An organized, analytical approach to the design, development, use and maintenance of software"
 
-More intiutively, software engineering is everything you need to do to produce successful software.
+More intuitively, software engineering is everything you need to do to produce successful software.
 
 ## Why is Software Engineering Important
 
@@ -28,7 +28,7 @@ You should separate tools to manage source code and other kinds of documents.
 
 ### Code Documentation
 
-The single most important requirement for a program's code is that it be understandable to the people who write and maintain it.Without good documentation, including both design documetns and comments inside the code, modifying or fixing your code later may be a nightmare.
+The single most important requirement for a program's code is that it be understandable to the people who write and maintain it.Without good documentation, including both design documents and comments inside the code, modifying or fixing your code later may be a nightmare.
 
 - Code documentation should include high- and low-level design documents that you store in the document repository with other kinds of documentation. These provide an overview of the methods the code is using to do whatever its supposed to do.
 - Code documentation should also include comments in the code to help you understand what the code is actually doing and how it works
