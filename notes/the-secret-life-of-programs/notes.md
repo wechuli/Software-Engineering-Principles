@@ -1,0 +1,3 @@
+- A good programmer has good critical thinking and analysis skills. To solve complex problems, a programmer needs the ability to evaluate whether or not programs actually solve the right problem correctly.
+- Good programmers write code that not only works but is also easy for others to understand and maintain.
+- Good programmers need a deep understanding of how computers work.
